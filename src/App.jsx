@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import Weather from "./components/Weather";
 
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
 
   const API_KEY = "2caa29a9fced729da9d9a4c493c6b031";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${API_KEY}`;
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
@@ -19,7 +20,7 @@ function App() {
   };
 
   return (
-    <div className="w-full h-full relative bg-slate-500">
+    <div className="w-full h-full relative">
       <div className="text-center p-4 flex justify-center ">
         <input
           type="text"
@@ -30,6 +31,8 @@ function App() {
           onKeyDown={searchLocation}
         />
       </div>
+      
+      <Weather weatherData = {data} />
     </div>
   );
 }
