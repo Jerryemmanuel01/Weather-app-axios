@@ -2,7 +2,7 @@ import React from "react";
 
 const Weather = ({ weatherData }) => {
   return (
-    <div className="md:w-[500px] mx-4 h-[250px] bg-gray-300 shadow-lg rounded-xl md:m-auto relative px-6 top-[10%]">
+    <div className="md:w-[500px] mx-4 md:h-[250px] h-[300px] bg-gray-300 shadow-lg rounded-xl md:m-auto relative px-6 top-[10%]">
       {weatherData.weather ? (
         <div className="flex justify-between w-full">
           <div className="w-1/2 my-4 mx-auto flex justify-between items-center">
