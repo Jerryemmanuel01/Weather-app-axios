@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import Weather from "./components/Weather";
+import axios from "axios";
 
 function App() {
   const [data, setData] = useState({});
@@ -12,10 +12,13 @@ function App() {
   }`;
 
   const handleSubmit = () => {
-    axios.get(url).then((response) => {
+    axios.get(url)
+     .then((response) => {
       setData(response.data);
-      console.log(response.data);
-    });
+     })
+     .catch((err) => {
+      console.log(err.message);
+     });
     setLocation("");
   };
 
