@@ -7,8 +7,9 @@ function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
 
-  const API_KEY = "2caa29a9fced729da9d9a4c493c6b031";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${
+    import.meta.env.VITE_API_KEY
+  }`;
 
   const handleSubmit = () => {
     axios.get(url).then((response) => {
@@ -16,7 +17,7 @@ function App() {
       console.log(response.data);
     });
     setLocation("");
-  }
+  };
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
@@ -36,7 +37,11 @@ function App() {
             onChange={(e) => setLocation(e.target.value)}
             onKeyDown={searchLocation}
           />
-          <CiSearch size={30} className="absolute right-2 cursor-pointer top-2" onClick={handleSubmit}/>
+          <CiSearch
+            size={30}
+            className="absolute right-2 cursor-pointer top-2"
+            onClick={handleSubmit}
+          />
         </div>
       </div>
 
