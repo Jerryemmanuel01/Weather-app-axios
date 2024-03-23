@@ -8,7 +8,7 @@ function App() {
   const [location, setLocation] = useState("");
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${
-    process.env.API_KEY
+    import.meta.env.VITE_API_KEY
   }`;
 
   const handleSubmit = () => {
